@@ -10,6 +10,7 @@ import Loader from "./Loader";
 const Cryptocurrencies = ({ simplified }) => {
   const count = simplified ? 10 : 100;
   const { data: cryptoList, isFetching } = useGetCryptosQuery(count);
+  console.log(cryptoList?.data?.stats?.total);
   const [cryptos, setCryptos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   useEffect(() => {

@@ -8,14 +8,20 @@ import Loader from "./Loader";
 import News from "./News";
 const { Title } = Typography;
 
-const Homepage = () => {
+const Homepage = ({ theme, toggleTheme }) => {
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
 
   if (isFetching) return <Loader />;
   return (
-    <>
-      <Title level={2} className="heading">
+    <div>
+      <Title
+        level={2}
+        className="heading"
+        style={{
+          color: theme === "light" ? "#000" : "#fff",
+        }}
+      >
         Global Crypto Stats
       </Title>
       <Row>
@@ -52,14 +58,26 @@ const Homepage = () => {
         </Col>
       </Row>
       <div className="home-heading-container">
-        <Title level={2} className="home-title">
+        <Title
+          level={2}
+          className="home-title"
+          style={{
+            color: theme === "light" ? "#000" : "#fff",
+          }}
+        >
           Top 10 Cryptocurrencies in the world
         </Title>
       </div>
 
       <Cryptocurrencies />
       <div className="home-heading-container">
-        <Title level={2} className="home-title">
+        <Title
+          level={2}
+          className="home-title"
+          style={{
+            color: theme === "light" ? "#000" : "#fff",
+          }}
+        >
           Latest Crypto News
         </Title>
         <Title level={3} className="show-more">
@@ -67,7 +85,7 @@ const Homepage = () => {
         </Title>
       </div>
       <News />
-    </>
+    </div>
   );
 };
 

@@ -5,7 +5,6 @@ const cryptoNewsHeaders = {
   "X-RapidAPI-Key": "9c9e90646cmshd9dcf0c582613b6p1a8349jsn43c062b93875",
   "X-RapidAPI-Host": "cryptocurrency-news2.p.rapidapi.com",
 };
-console.log(cryptoNewsHeaders);
 
 const baseUrl = "https://cryptocurrency-news2.p.rapidapi.com/v1/bitcoinist";
 console.log(baseUrl);
