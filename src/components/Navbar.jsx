@@ -37,7 +37,7 @@ const Navbar = () => {
         </Typography.Title>
         <Button
           className="menu-control-container"
-          onClick={() => setActiveMenu(!activeMenu)}
+          onClick={({ icon }) => setActiveMenu(!activeMenu)}
         >
           <MenuOutlined />
         </Button>
