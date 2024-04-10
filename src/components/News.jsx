@@ -17,7 +17,7 @@ const News = ({ simplified }) => {
   });
   const { data } = useGetCryptosQuery(100);
 
-  if (!cryptoNews?.data) return <Loader />;
+  if (!cryptoNews?.coindesk) return <Loader />;
 
   return (
     <>
@@ -41,7 +41,7 @@ const News = ({ simplified }) => {
             </Select>
           </Col>
         )}
-        {cryptoNews.data.map((news, i) => (
+        {cryptoNews.coindesk.map((news, i) => (
           <Col xs={24} sm={12} lg={8} key={i}>
             <Card hoverable className="news-card">
               <a href={news.url} target="_blank" rel="noreferrer">
