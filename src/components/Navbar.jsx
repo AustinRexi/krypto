@@ -9,7 +9,8 @@ import {
   MenuOutlined,
 } from "@ant-design/icons";
 import icon from "../components/images/cryp.avif";
-const Navbar = () => {
+
+const Navbar = ({ theme }) => {
   const [activeMenu, setActiveMenu] = useState(true);
   const [screenSize, setScreenSize] = useState(null);
 
@@ -22,28 +23,53 @@ const Navbar = () => {
 
   useEffect(() => {
     if (screenSize < 768) {
-      setActiveMenu(true);
+      setActiveMenu(false);
     } else {
       setActiveMenu(true);
     }
   }, [screenSize]);
 
   return (
-    <div className="nav-container">
-      <div className="logo-container">
+    <div style={{ display: "flex", flexDirection: "column", padding: "1rem" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <Avatar src={icon} size="large" />
-        <Typography.Title level={2} className="logo">
-          <Link to="/">Ovary-x</Link>
+        <Typography.Title level={2} style={{ margin: 0 }}>
+          <Link
+            to="/"
+            style={{
+              color: theme === "light" ? "#000" : "#fff",
+              textDecoration: "none",
+            }}
+          >
+            Ovary-x
+          </Link>
         </Typography.Title>
         <Button
-          className="menu-control-container"
-          onClick={({ icon }) => setActiveMenu(!activeMenu)}
+          style={{
+            border: "none",
+            background: "none",
+            display: screenSize >= 768 ? "none" : "inline-flex",
+          }}
+          onClick={() => setActiveMenu(!activeMenu)}
         >
-          <MenuOutlined />
+          <MenuOutlined
+            style={{
+              width: "40px",
+              backgroundColor: "white",
+              padding: "8px",
+              borderRadius: "5px",
+            }}
+          />
         </Button>
       </div>
       {activeMenu && (
-        <Menu theme="dark">
+        <Menu theme="dark" mode="vertical" style={{ marginTop: "3rem" }}>
           <Menu.Item icon={<HomeOutlined />}>
             <Link to="/">Home</Link>
           </Menu.Item>
